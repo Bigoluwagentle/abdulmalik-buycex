@@ -1,8 +1,16 @@
+"use client";
 import Head from "next/head";
 import Link from "next/link";
 import style from "../styles/Home.module.css";
+import { motion } from "framer-motion";
 
 export default function Home() {
+  function hamburger(){
+    document.querySelector(".mobile").style.display = "block";
+  }
+  function Close(){
+    document.querySelector(".mobile").style.display = "none";
+  }
   return (
     <>
       <Head>
@@ -12,31 +20,68 @@ export default function Home() {
         <link rel="icon" href="/buycexlogo.svg" />
       </Head>
       <div id={style.div}>
-        <header className={style.header}>
+        <motion.div id={style.mobile} style={{display: "none"}} className="mobile"
+          initial={{opacity:0, x:-100}}
+          whileInView={{opacity:1, x:0}}
+          transition={{duration:1}}
+        >
+          <img src="/icon-close.svg" onClick={Close}/>
+          <div>
+            <Link href="#gerStarted">Buy Crypto</Link>
+            <Link href="#market">Markets</Link>
+            <Link href="#trade">Trades</Link>
+            <Link href="#Derivates">Derivates</Link>
+            <Link href="#earn">Earns</Link>
+            <Link href="#Media">Media</Link>
+            <Link href="#">Infinity</Link>
+            <button>Sign up</button>
+          </div>
+        </motion.div>
+        <motion.header className={style.header}
+          initial={{y: -50, opacity:0}}
+          whileInView={{y:0, opacity:1}}
+          transition={{duration:2}}
+        >
           <img src="/buycexlogo.svg" style={{width: "100px"}}/>
           <div>
-            <Link href="#">Buy Crypto</Link>
-            <Link href="#">Markets</Link>
-            <Link href="#">Trades</Link>
-            <Link href="#">Derivates</Link>
-            <Link href="#">Earns</Link>
-            <Link href="#">Media</Link>
+            <Link href="#gerStarted">Buy Crypto</Link>
+            <Link href="#market">Markets</Link>
+            <Link href="#trade">Trades</Link>
+            <Link href="#Derivates">Derivates</Link>
+            <Link href="#earn">Earns</Link>
+            <Link href="#Media">Media</Link>
             <Link href="#">Infinity</Link>
           </div>
           <div>
-            <img src="/solar_moon-bold-duotone.svg"/>
             <button>Sign up</button>
           </div>
-          <img src="icon-hamburger.svg"/>
-        </header>
+          <img src="icon-hamburger.svg" id={style.ham} onClick={hamburger}/>
+        </motion.header>
 
+        
         <div>
           <nav>
-            <h1>Where the Future of Crypto Begins!</h1>
-            <p>Trade Crypto <span>Anywhere, Capture</span> Every Opportunity.</p>
-            <button>Get Started</button>
+            <motion.h1
+              initial={{x:50, opacity:0}}
+              whileInView={{opacity:1, x:0}}
+              transition={{duration: 1, delay:0.2}}
+            >Where the Future of Crypto Begins!</motion.h1>
+            <motion.p
+              initial={{x:-50, opacity:0}}
+              whileInView={{opacity:1, x:0}}
+              transition={{duration: 1, delay:0.2}}
+            >Trade Crypto <span>Anywhere, Capture</span> Every Opportunity.</motion.p>
+            <motion.button
+              initial={{y:50, opacity:0}}
+              whileInView={{opacity:1, y:0}}
+              transition={{duration: 2, delay:0.2, type: "spring", stiffness: 120}}
+            >Get Started</motion.button>
           </nav>
-          <img src="/herosection-img.svg"/>
+          <motion.img src="/herosection-img.svg"
+            initial={{scale:0.3, opacity:0}}
+            whileInView={{opacity:1, scale:1}}
+            transition={{duration: 2, delay:0.2}}
+          />
         </div>
 
         <aside>
@@ -63,15 +108,35 @@ export default function Home() {
         </aside>
 
         <section id={style.middleSection}>
-          <img src="/image1.svg"/>
-          <img src="/image2.svg"/>
-          <img src="/image3.svg"/>
-          <img src="/image4.svg"/>
+          <motion.img src="/image1.svg"
+            initial={{opacity:0, scale:0.8}}
+            whileInView={{opacity:1, scale:1}}
+            transition={{duration:1}}
+          />
+          <motion.img src="/image2.svg"
+            initial={{opacity:0, scale:0.8}}
+            whileInView={{opacity:1, scale:1}}
+            transition={{duration:1, delay:0.3}}
+          />
+          <motion.img src="/image3.svg"
+            initial={{opacity:0, scale:0.8}}
+            whileInView={{opacity:1, scale:1}}
+            transition={{duration:1, delay:0.6}}
+          />
+          <motion.img src="/image4.svg"
+            initial={{opacity:0, scale:0.8}}
+            whileInView={{opacity:1, scale:1}}
+            transition={{duration:1, delay:0.8}}
+          />
         </section>
 
-        <h1>Crypto Market Overviews</h1>
+        <h1 id="market">Crypto Market Overviews</h1>
         <article>
-          <section style={{border: "2px solid gray"}}>
+          <motion.section style={{border: "2px solid gray"}}
+            initial={{opacity:0, y:100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:2}}
+          >
             <span>Hot Tokens</span>
             <div>
               <nav>
@@ -111,10 +176,13 @@ export default function Home() {
                 <button>Trade</button>
               </nav>
             </div>
-          </section>
+          </motion.section>
           <section className={style.main}>
-            <article>
-              {/* <h2>Top Gainer</h2> */}
+            <motion.article
+              initial={{opacity:0, y:-100}}
+              whileInView={{opacity:1, y:0}}
+              transition={{duration:2}}
+            >
               <nav>
                 <h4>Trading Pair</h4>
                 <p><img src="/image 19.svg"/> CVM/USDT</p>
@@ -139,8 +207,12 @@ export default function Home() {
                 <button>Trade</button>
                 <button>Trade</button>
               </nav>
-            </article>
-            <article>
+            </motion.article>
+            <motion.article
+              initial={{opacity:0, y:100}}
+              whileInView={{opacity:1, y:0}}
+              transition={{duration:2}}
+            >
               <nav>
                 <h4>Trading Pair</h4>
                 <p><img src="/image 19.svg"/> CVM/USDT</p>
@@ -165,14 +237,22 @@ export default function Home() {
                 <button>Trade</button>
                 <button>Trade</button>
               </nav>
-            </article>
+            </motion.article>
           </section>
         </article>
 
-        <h1 className={style.h1}>How To Get Started</h1>
+        <motion.h1 id="gerStarted" className={style.h1}
+          initial={{opacity:0, y:100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:2}}
+        >How To Get Started</motion.h1>
 
         <section>
-          <aside>
+          <motion.aside
+            initial={{opacity:0, y:100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:2}}
+          >
             <nav>
               <span>1</span>
               <img src="/image 21 (2).svg"/>
@@ -180,8 +260,12 @@ export default function Home() {
             <h4>Create Account</h4>
             <p>Sign up and complete beginner tasks, win-up to $6666.</p>
             <button>Sign up now</button>
-          </aside>
-          <aside>
+          </motion.aside>
+          <motion.aside
+            initial={{opacity:0, y:100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:2, delay:0.2}}
+          >
             <nav>
               <span>2</span>
               <img src="/image 21 (3).svg"/>
@@ -189,8 +273,12 @@ export default function Home() {
             <h4>CFund Your Account</h4>
             <p>Add funds to your account to start your crypto investment journey.</p>
             <button>Deposit/Buy now</button>
-          </aside>
-          <aside>
+          </motion.aside>
+          <motion.aside
+            initial={{opacity:0, y:100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:2, delay:0.4}}
+          >
             <nav>
               <span>3</span>
               <img src="/image 21 (4).svg"/>
@@ -198,54 +286,78 @@ export default function Home() {
             <h4>Start Trading</h4>
             <p>Sell, buy or copy trade crypto and explore more.</p>
             <button>Trade now</button>
-          </aside>
+          </motion.aside>
         </section>
         <h1>Discover more products</h1>
 
         <summary>
-          <section>
+          <motion.section
+            initial={{opacity:0, x:-100}}
+            whileInView={{opacity:1, x:0}}
+            transition={{duration:2}}
+          >
             <nav>
               <h4>Spot Trade</h4>
               <p>Engage in real-time cryptocurrency trading with our intuitive platform</p>
             </nav>
             <img src="/image 22.png"/>
-          </section>
-          <section>
+          </motion.section>
+          <motion.section
+            initial={{opacity:0, x:100}}
+            whileInView={{opacity:1, x:0}}
+            transition={{duration:2}}
+          >
             <nav>
               <h4>Earn</h4>
               <p>Maximize your crypto holdings by earning passive income</p>
             </nav>
             <img src="/image 22 (1).png"/>
-          </section>
+          </motion.section>
         </summary>
 
-        <nav>
+        <nav id="Derivates">
           <h2>Secure, Ownership- Driven Crypto Exchange</h2>
         </nav>
         <div id={style.wrapper}>
-          <section>
+          <motion.section
+            initial={{opacity:0, y:100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:2}}
+          >
             <img src="/Frame 107 (1).svg"/>
             <h4>Secure Asset Storage </h4>
             <p>Our cutting-edge encryption and storage solutions guarantee the safety and security of your assets at all times.</p>
-          </section>
-          <section>
+          </motion.section>
+          <motion.section
+            initial={{opacity:0, y:100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:2, delay:0.3}}
+          >
             <img src="/Frame 107 (1).svg"/>
             <h4>Secure Asset Storage </h4>
             <p>Our cutting-edge encryption and storage solutions guarantee the safety and security of your assets at all times.</p>
-          </section>
-          <section>
+          </motion.section>
+          <motion.section
+            initial={{opacity:0, y:-100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:2}}
+          >
             <img src="/Frame 107 (1).svg"/>
             <h4>Secure Asset Storage </h4>
             <p>Built with a security-first approach, our platform ensures rapid detection and response to cyber threats, giving you confident control and ownership.</p>
-          </section>
-          <section>
+          </motion.section>
+          <motion.section
+            initial={{opacity:0, y:100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:2}}
+          >
             <img src="/Frame 107 (1).svg"/>
             <h4>Secure Asset Storage </h4>
             <p>Proof of Reserves (PoR) verifies BuyCex’s custody of blockchain assets, ensuring full coverage of all user funds.</p>
-          </section>
+          </motion.section>
         </div>
 
-        <div className={style.wrapper}>
+        <div id="trade" className={style.wrapper}>
           <section>
             <nav>
               <h2>Keep Trading on-the Go. Anywhere, anytime</h2>
@@ -263,24 +375,32 @@ export default function Home() {
           </section>
           <img src="/image 28.svg"/>
         </div>
-        <h2>Keep Trading on-the Go. Anywhere, anytime</h2>
+        <h2 id="earn">Keep Trading on-the Go. Anywhere, anytime</h2>
         <article>
-          <summary>
+          <motion.summary
+            initial={{opacity:0, x:-100}}
+            whileInView={{opacity:1, x:0}}
+            transition={{duration:1, delay:0.2}}
+          >
             <h2>24/7 Customer Service</h2>
             <p>Your questions, answered. Contact BuyCex customer support with your questions at any time.</p>
             <nav>
               <button>Get Help</button>
               <img src="/image 29.svg"/>
             </nav>
-          </summary>
-          <summary>
+          </motion.summary>
+          <motion.summary
+            initial={{opacity:0, x:100}}
+            whileInView={{opacity:1, x:0}}
+            transition={{duration:1, delay:0.3}}
+          >
             <h2>Join Our Community</h2>
             <p>The BuyCex Global Community is home to millions of users from 200+ countries, with support for 20+ languages..</p>
             <nav>
               <button>Join now</button>
               <img src="/image 30.svg"/>
             </nav>
-          </summary>
+          </motion.summary>
         </article>
 
         <div className={style.containers}>
@@ -303,12 +423,24 @@ export default function Home() {
           </div>
         </div>
         <div className={style.content}>
-          <h2>Start Your Crypto Journey Now!</h2>
-          <button>Sign Up Now</button>
+          <motion.h2
+            initial={{opacity:0, y:100}}
+            whileInView={{opacity:1, y:0}}
+            transition={{duration:1}}
+          >Start Your Crypto Journey Now!</motion.h2>
+          <motion.button
+            initial={{opacity:0, x:-100}}
+            whileInView={{opacity:1, x:0}}
+            transition={{duration:5, type: "spring", stiffness: 150}}
+          >Sign Up Now</motion.button>
         </div>
 
-        <footer>
-          <section>
+        <footer id="Media">
+          <motion.section
+            initial={{opacity:0}}
+            whileInView={{opacity:1}}
+            transition={{duration:2}}
+          >
             <h4>Corporate</h4>
             <p>About us</p>
             <p>Join In</p>
@@ -321,8 +453,12 @@ export default function Home() {
             <p>Risk Disclosure Statement </p>
             <p>AML & CFE </p>
             <p>Cookies Reference</p>
-          </section>
-          <section>
+          </motion.section>
+          <motion.section
+            initial={{opacity:0}}
+            whileInView={{opacity:1}}
+            transition={{duration:2, delay:0.2}}
+          >
             <h4>Services</h4>
             <p>About us</p>
             <p>Join In</p>
@@ -335,8 +471,12 @@ export default function Home() {
             <p>Risk Disclosure Statement </p>
             <p>AML & CFE </p>
             <p>Cookies Reference</p>
-          </section>
-          <section>
+          </motion.section>
+          <motion.section
+            initial={{opacity:0}}
+            whileInView={{opacity:1}}
+            transition={{duration:2, delay:0.4}}
+          >
             <h4>Services</h4>
             <p>About us</p>
             <p>Join In</p>
@@ -349,8 +489,12 @@ export default function Home() {
             <p>Risk Disclosure Statement </p>
             <p>AML & CFE </p>
             <p>Cookies Reference</p>
-          </section>
-          <section>
+          </motion.section>
+          <motion.section
+            initial={{opacity:0}}
+            whileInView={{opacity:1}}
+            transition={{duration:2, delay:0.6}}
+          >
             <h4>Learns</h4>
             <p>About us</p>
             <p>Join In</p>
@@ -363,8 +507,12 @@ export default function Home() {
             <p>Risk Disclosure Statement </p>
             <p>AML & CFE </p>
             <p>Cookies Reference</p>
-          </section>
-          <section>
+          </motion.section>
+          <motion.section
+            initial={{opacity:0}}
+            whileInView={{opacity:1}}
+            transition={{duration:2, delay:1}}
+          >
             <h4>Products</h4>
             <p>About us</p>
             <p>Join In</p>
@@ -377,7 +525,7 @@ export default function Home() {
             <p>Risk Disclosure Statement </p>
             <p>AML & CFE </p>
             <p>Cookies Reference</p>
-          </section>
+          </motion.section>
         </footer>
         <li>Designed by Abdulmalik(codeWithFaith)</li>
       </div>

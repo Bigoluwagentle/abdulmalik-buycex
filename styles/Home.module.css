@@ -603,7 +603,8 @@
       + article{
         flex-direction: column;
         > section{
-          width: 90%;
+          width: 100%;
+          min-height: 45vh;
         }
       }
     }
@@ -613,7 +614,7 @@
       flex-direction: column;
       align-items: center;
       > aside{
-        width: 70%;
+        width: 80%;
         margin-bottom: 30px;
       }
       + h1{
@@ -623,7 +624,7 @@
           align-items: center;
           > section{
             margin-bottom: 30px;
-            width: 70%;
+            width: 90%;
           }
           + nav{
             > h2{
@@ -647,6 +648,9 @@
                       align-items: center;
                       margin-top: 30px;
                       text-align: center;
+                      > button{
+                        margin-bottom: 20px;
+                      }
                     }
                   }
                 }
@@ -656,7 +660,7 @@
                     flex-direction: column;
                     align-items: center;
                     > summary{
-                      width: 80%;
+                      width: 90%;
                       margin-bottom: 30px;
                     }
                   }

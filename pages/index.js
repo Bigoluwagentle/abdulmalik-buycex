@@ -11,6 +11,9 @@ export default function Home() {
   function Close(){
     document.querySelector(".mobile").style.display = "none";
   }
+  function sign(){
+    document.querySelector("#signup").click();
+  }
   return (
     <>
       <Head>
@@ -20,6 +23,7 @@ export default function Home() {
         <link rel="icon" href="/buycexlogo.svg" />
       </Head>
       <div id={style.div}>
+        <Link href="/Signup" id="signup"/>
         <motion.div id={style.mobile} style={{display: "none"}} className="mobile"
           initial={{opacity:0, x:-100}}
           whileInView={{opacity:1, x:0}}
@@ -53,7 +57,7 @@ export default function Home() {
             <Link href="#">Infinity</Link>
           </div>
           <div>
-            <button>Sign up</button>
+            <button onClick={sign}>Sign up</button>
           </div>
           <img src="icon-hamburger.svg" id={style.ham} onClick={hamburger}/>
         </motion.header>

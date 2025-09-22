@@ -1,0 +1,70 @@
+#signs{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    > section{
+        width: 60%;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        > p{
+            color: #FFF;
+            margin-top: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        > legend{
+            letter-spacing: 2px;
+            color: #FFF;
+            margin-top: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        > form{
+            width: 50%;
+            margin-top: 50px;
+            > nav{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: flex;
+                margin-bottom: 30px;
+                flex-direction: column;
+                > label{
+                    color: #EFB81A;
+                    margin-bottom: 3px;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+                > input{
+                    min-height: 40px;
+                    padding: 10px;
+                    outline: none;
+                }
+                > button{
+                    min-height: 40px;
+                    cursor: pointer;
+                    background-color: #EFB81A;
+                    border: none;
+                    font-weight: bold;
+                }
+                > h4, p{
+                    cursor: pointer;
+                    &:hover{
+                        color: #EFB81A;
+                    }
+                }
+                p{
+                    font-size: 14px;
+                    color: #EFB81A;
+                    text-decoration: underline;
+                }
+            }
+            .nav{
+                color: #FFF;
+                margin-top: 20px;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
+}

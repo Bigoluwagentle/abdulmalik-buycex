@@ -7,7 +7,7 @@ function Login(){
                 <img src="/buycexlogo.svg"/>
                 <p>Community Owned Crypto Currency Exchange</p>
                 <legend>LOGIN NOW</legend>
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                     <nav>
                         <label htmlFor="email">EMAIL</label>
                         <input type="email" id="email" placeholder="Enter Your Email Adress" />
@@ -29,7 +29,7 @@ function Login(){
                     </nav>
                 </form>
                 <Link href="/Signup" id="sig"/>
-                <Link href="/Dashboard" id="land">hi</Link>
+                <Link href="/Dashboard" id="land"/>
             </section>
         </div>
     )

@@ -68,3 +68,17 @@
         }
     }
 }
+@media screen and (max-width: 800px){
+    #signs{
+        > section{
+            width: 90%;
+            > img{
+                margin-top: 20px;
+            }
+            > form{
+                width: 100%;
+            }
+        }
+    }
+    
+}

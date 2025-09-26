@@ -3,16 +3,12 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Dashboard.module.css";
 import { motion } from "framer-motion";
-
 export default function Dashboard() {
   function hamburger(){
     document.querySelector(".mobile").style.display = "block";
   }
   function Close(){
     document.querySelector(".mobile").style.display = "none";
-  }
-  function sign(){
-    document.querySelector("#signup").click();
   }
   return (
     <>
@@ -23,13 +19,7 @@ export default function Dashboard() {
         <link rel="icon" href="/buycexlogo.svg" />
         <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css "/>
       </Head>
-      <div id={styles.dashboar} onClick={() => {
-        if(document.querySelector("#drop").style.display == "block"){
-          document.querySelector("#drop").style.display = "none";
-        }else{
-          document.querySelector("#drop").style.display = "block";
-        }
-      }}>
+      <div id={styles.dashboar}>
         <Link href="/Signup" id="signup"/>
         <motion.div id={styles.mobile} style={{display: "none"}} className="mobile"
           initial={{opacity:0, x:-100}}
@@ -63,12 +53,15 @@ export default function Dashboard() {
             <Link href="#Media">Media</Link>
           </div>
           <div>
-            <button onClick={sign}>Deposit</button>
+            <button>Deposit</button>
             <aside>
               <i class="fa-solid fa-user" onClick={() => {
                 document.querySelector("#drop").style.display = "block";
               }}></i>
               <div id="drop">
+                <img src="/icon-close.svg" alt="" onClick={() => {
+                  document.querySelector("#drop").style.display = "none";
+                }} />
                 <nav>
                   <div>A</div>
                   <nav>
@@ -136,11 +129,13 @@ export default function Dashboard() {
             </div>
           </nav>
           <nav>
-            <h4>10h  :  56 m   : 07 s</h4>
+            <h4 id="count">10h  :  56 m   : 07 s</h4>
             <label>Coming soon</label>
           </nav>
           <nav>
-            <button>
+            <button onClick={() => {
+              alert("You have successful subscribed")
+            }}>
               <img src="/Vector.svg"/>
               Subscribed
             </button>

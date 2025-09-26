@@ -7,7 +7,7 @@ function Signup(){
                 <img src="/buycexlogo.svg"/>
                 <p>Community Owned Crypto Currency Exchange</p>
                 <legend>SIGNUP NOW</legend>
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                     <nav>
                         <label htmlFor="email">EMAIL</label>
                         <input type="email" id="email" placeholder="Enter Your Email Adress" />
@@ -21,7 +21,9 @@ function Signup(){
                         <input type="password" id="password" placeholder="Enter Your Password" />
                     </nav>
                     <nav>
-                        <button>SIGNUP</button>
+                        <button onClick={() => {
+                            document.querySelector("#log").click();
+                        }}>SIGNUP</button>
                     </nav>
                     <nav className={Signups.nav}>
                         <h4 onClick={() => {

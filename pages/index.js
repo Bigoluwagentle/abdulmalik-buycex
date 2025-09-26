@@ -38,7 +38,7 @@ export default function Home() {
             <Link href="#earn">Earns</Link>
             <Link href="#Media">Media</Link>
             <Link href="#">Infinity</Link>
-            <button>Sign up</button>
+            <button onClick={sign}>Sign up</button>
           </div>
         </motion.div>
         <motion.header className={style.header}
@@ -79,6 +79,7 @@ export default function Home() {
               initial={{y:50, opacity:0}}
               whileInView={{opacity:1, y:0}}
               transition={{duration: 2, delay:0.2, type: "spring", stiffness: 120}}
+              onClick={sign}
             >Get Started</motion.button>
           </nav>
           <motion.img src="/herosection-img.svg"
@@ -104,7 +105,7 @@ export default function Home() {
             <label>Coming soon</label>
           </nav>
           <nav>
-            <button>
+            <button onClick={sign}> 
               <img src="/Vector.svg"/>
               Subscribed
             </button>
@@ -276,7 +277,7 @@ export default function Home() {
             </nav>
             <h4>CFund Your Account</h4>
             <p>Add funds to your account to start your crypto investment journey.</p>
-            <button>Deposit/Buy now</button>
+            <button onClick={sign}>Deposit/Buy now</button>
           </motion.aside>
           <motion.aside
             initial={{opacity:0, y:100}}
@@ -289,7 +290,7 @@ export default function Home() {
             </nav>
             <h4>Start Trading</h4>
             <p>Sell, buy or copy trade crypto and explore more.</p>
-            <button>Trade now</button>
+            <button onClick={sign}>Trade now</button>
           </motion.aside>
         </section>
         <h1>Discover more products</h1>
@@ -372,8 +373,8 @@ export default function Home() {
               <div>
                 <h4>Scan QR Code</h4>
                 <p>Download BuyCex app for Android/IOS</p>
-                <button>App Store</button>
-                <button>Android Play</button>
+                <button onClick={sign}>App Store</button>
+                <button onClick={sign}>Android Play</button>
               </div>
             </nav>
           </section>
